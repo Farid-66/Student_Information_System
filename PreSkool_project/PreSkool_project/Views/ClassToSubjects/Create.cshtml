@@ -1,0 +1,55 @@
+﻿@model PreSkool_project.Models.ClassToSubject
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Add Subject to Class</h2>
+                    <p class="d-none d-sm-block"><a asp-controller="ClassToSubjects" asp-action="index">Subject to Class List</a> / Add Subject to Class</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <form  asp-controller="ClassToSubjects" asp-action="Create" method="post">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2><span>Class Information</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="ClassId" class="form-label">Class</label>
+                                    <select asp-for="ClassId" class ="form-control" asp-items="ViewBag.ClassId">
+                                        <option selected disabled>Select Class</option>
+                                    </select>
+                                    <span asp-validation-for="ClassId" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="SubjectId" class="form-label">Subjects</label>
+                                    <select asp-for="SubjectId" class ="form-control" asp-items="ViewBag.SubjectId">
+                                        <option selected disabled>Select Subject</option>
+                                    </select>
+                                    <span asp-validation-for="SubjectId" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Name</label>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn_submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+

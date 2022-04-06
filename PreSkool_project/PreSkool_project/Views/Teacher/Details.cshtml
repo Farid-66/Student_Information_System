@@ -1,0 +1,68 @@
+﻿@model PreSkool_project.Models.Teacher
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Teacher Details</h2>
+                        <p class="d-none d-sm-block"><a asp-controller="teacher" asp-action="index" >Teachers</a> / Teacher Details </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <div id="details">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="details_header">
+                                        <h2>About</h2>
+                                        <a asp-controller="Teacher" asp-action="edit" asp-route-id="@Model.Id" class="edit_btn"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 col-md-3 image">
+                                    <img src="~/Uploads/@Model.TeacherImage" alt="" srcset="">
+                                </div>
+                                <div class="col-12 col-md-9 about">
+                                    <p><b>Full Name :</b><span>@Model.Name @Model.Surname</span> </p>
+                                    <p><b>Mobile :</b><span>@Model.MobilNumber</span> </p>
+                                    <p><b>Email :</b><span>@Model.CustomUser.Email</span> </p>
+                                    <p><b>Gender :</b><span>@Model.Gender.Name</span> </p>
+                                    <p><b>Date of Birth :</b><span>@Model.DateOfBirth.ToString("dd MMMM yyyy")</span> </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <address>
+                                        <p><b>Address</b></p>
+                                        <p>@Model.Address</p>
+                                        <p>@Model.City</p>
+                                        <p>@Model.State</p>
+                                        <p>@Model.Country</p>
+                                        <p>@Model.ZipCode</p>
+                                    </address>
+
+                                    <div class="about">
+                                        <p><b>Subject :</b><span>@Model.Subject.Name</span> </p>
+                                        <p><b>Experience :</b><span>@Model.Experience</span> </p>
+                                        <p><b>Qualification :</b><span>@Model.Qualification</span> </p>
+                                        <p><b>Joining Date :</b><span>@Model.JoiningDate.ToString("dd MMMM yyyy")</span> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

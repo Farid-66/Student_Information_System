@@ -1,0 +1,54 @@
+﻿@model CustomUser
+@{
+    ViewData["Title"] = "UserUpdate";
+}
+    
+
+<main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>User Upate</h2>
+                    <p class="d-none d-sm-block"><a asp-controller="Account" asp-action="Users">Users</a> / User Upate</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <form asp-controller="Account" asp-action="UserUpdate" method="post">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2><span>User Information</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="@Model.Name" class="form-label">User Name</label>
+                                    <input type="text" asp-for="@Model.Name" class="form-control">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="@Model.Surname" class="form-label">User Surname</label>
+                                    <input type="text" asp-for="@Model.Surname" class="form-control">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="@Model.RoleId" class="form-label">User Role</label>
+                                    <select class="form-control" asp-for="@Model.RoleId" asp-items="@(new SelectList(ViewBag.Roles, "Id", "Name"))">
+                                        <option selected disabled>Select role</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="@Model.Email" class="form-label">User Eamil</label>
+                                    <input type="text" asp-for="@Model.Email" class="form-control">
+                                </div>
+                            </div>
+                            <input asp-for="@Model.Id" hidden/> 
+                            <input asp-for="@Model.CreatedDate" hidden />
+                            
+                            <button type="submit" class="btn btn_submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

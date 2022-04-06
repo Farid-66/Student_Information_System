@@ -1,0 +1,134 @@
+﻿@model VmTeacher
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+   <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Add Teachers</h2>
+                    <p class="d-none d-sm-block"><a asp-controller="Teacher" asp-action="index">Teachers</a> / Add Teachers</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <form asp-controller="teacher" asp-action="create" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2><span>Basic Details</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">First Name</label>
+                                    <input asp-for="@Model.Name" class="form-control" />
+                                    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Last Name</label>
+                                    <input asp-for="@Model.Surname" class="form-control" />
+                                    <span asp-validation-for="@Model.Surname" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="@Model.GenderId" class="form-label">Gender</label>
+                                    <select asp-for="@Model.GenderId" class ="form-control" asp-items="ViewBag.GenderId">
+                                        <option selected disabled>Select Section</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="@Model.SubjectId" class="form-label">Subject</label>
+                                    <select asp-for="@Model.SubjectId" class ="form-control" asp-items="ViewBag.SubjectId">
+                                        <option selected disabled>Select Subject</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Mobile Number</label>
+                                     <input asp-for="@Model.MobilNumber" class="form-control" />
+                                     <span asp-validation-for="@Model.MobilNumber" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Qualification</label>
+                                    <input asp-for="@Model.Qualification" class="form-control" />
+                                    <span asp-validation-for="@Model.Qualification" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Date of Birth</label>
+                                    <input asp-for="@Model.DateOfBirth" type="date" class="form-control" />
+                                    <span asp-validation-for="@Model.DateOfBirth" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Joining Date</label>
+                                    <input asp-for="@Model.JoiningDate" type="date" class="form-control" />
+                                    <span asp-validation-for="@Model.JoiningDate" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Experience</label>
+                                    <input asp-for="@Model.Experience" type="number" class="form-control" />
+                                    <span asp-validation-for="@Model.Experience" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="formFile" class="form-label">Teacher Image</label>
+                                    <input asp-for="@Model.ImageFile" style="height: auto;" type="file"  class="form-control" />
+                                    <span asp-validation-for="@Model.ImageFile" class="text-danger"></span>
+                                </div>
+    
+                                <div class="col-12">
+                                    <h2><span>Login Details</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Email</label>
+                                    <input asp-for="@Model.Email" class="form-control" />
+                                    <span asp-validation-for="@Model.Email" type="email" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Password</label>
+                                    <input asp-for="@Model.Password" class="form-control" />
+                                    <span asp-validation-for="@Model.Password" type="password" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Role</label>
+                                    <select asp-for="@Model.RoleId" class ="form-control" asp-items="ViewBag.RoleId">
+                                        <option selected disabled>Select Role ID</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <h2><span>Address</span></h2>
+                                </div>
+                                <div class="col-12">
+                                    <label for="" class="form-label">Address</label>
+                                    <input asp-for="@Model.Address" class="form-control" />
+                                    <span asp-validation-for="@Model.Address" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">City</label>
+                                    <input asp-for="@Model.City" class="form-control" />
+                                    <span asp-validation-for="@Model.City" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">State</label>
+                                     <input asp-for="@Model.State" class="form-control" />
+                                     <span asp-validation-for="@Model.State" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Zip Code</label>
+                                    <input asp-for="@Model.ZipCode" class="form-control" />
+                                    <span asp-validation-for="@Model.ZipCode" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Country</label>
+                                    <input asp-for="@Model.Country" class="form-control" />
+                                    <span asp-validation-for="@Model.Country" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn_submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

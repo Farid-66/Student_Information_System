@@ -1,0 +1,49 @@
+﻿@using PreSkool_project.ViewModels
+@model VmStudentDashboard
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+
+  <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Profile</h2>
+                        <p class="d-none d-sm-block"><a asp-controller="studentdashboard" asp-action="index">Dashboard</a> / Profile</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body" style="background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);">
+                        <div class="profil_header">
+                            <div class="row align-items-center">
+                                <div class="col-auto ">
+                                    <a href="#">
+                                        <img class="rounded-circle" src="~/Uploads/@Model.Student.StudentImage">
+                                    </a>
+                                </div>
+                                <div class="col ms-md-n2" style="font-family: 'Poppins', sans-serif;">
+                                    <h4 class="user-name mb-0">@Model.Student.Name @Model.Student.Surname</h4>
+                                    <h6 class="text-muted">@Model.Student.Section.Name</h6>
+                                    <div><i class="fas fa-map-marker-alt"></i> 
+                                        @Model.Student.PresentAddress
+                                    </div>
+                                </div>
+                                <div class="col-auto ">
+                                    @*<a href="#" class="btn btn-primary">
+                                        Edit
+                                    </a>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+

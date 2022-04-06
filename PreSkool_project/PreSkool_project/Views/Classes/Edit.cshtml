@@ -1,0 +1,40 @@
+﻿@model PreSkool_project.Models.Class
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Class Edit</h2>
+                    <p class="d-none d-sm-block"><a asp-controller="Classes" asp-action="index">Classes</a> / Class Edit</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <form  asp-controller="Classes" asp-action="edit" method="post">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2><span>Class Information</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="@Model.Name" class="form-label">Class Name</label>
+                                    <input type="text" class="form-control" asp-for="@Model.Name">
+                                    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <input asp-for="@Model.Id" hidden />
+                            <button type="submit" class="btn btn_submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

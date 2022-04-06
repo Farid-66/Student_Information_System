@@ -1,0 +1,53 @@
+﻿@model PreSkool_project.Models.Library
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Edit Book</h2>
+                    <p class="d-none d-sm-block"><a asp-controller="Library" asp-action="index">Departments</a> / Edit Book</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <form asp-controller="Library" asp-action="Edit" method="post">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2><span>Book Information</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Book Name</label>
+                                    <input asp-for="BookName" class="form-control" />
+                                    <span asp-validation-for="BookName" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Language</label>
+                                    <input asp-for="Language" class="form-control" />
+                                    <span asp-validation-for="Language" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Department</label>
+                                    <select asp-for="DepartmentId" class ="form-control" asp-items="ViewBag.DepartmentId">
+                                        <option selected disabled>Select Department Name</option>
+                                    </select>
+                                    <span asp-validation-for="Language" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <input type="hidden" asp-for="BookId" />
+                            <input type="hidden" asp-for="CreatedDate" />
+                            <button type="submit" class="btn btn_submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

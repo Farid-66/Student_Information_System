@@ -1,0 +1,66 @@
+﻿@model Student
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Student Details</h2>
+                        <p class="d-none d-sm-block"><a asp-controller="student" asp-action="index" >Students</a> / Student Details </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <div id="details">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="details_header">
+                                        <h2>About</h2>
+                                        <a asp-controller="student" asp-action="edit" asp-route-id="@Model.Id" class="edit_btn"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 col-md-3 image">
+                                    <img src="~/Uploads/@Model.StudentImage" alt="" srcset="">
+                                </div>
+                                <div class="col-12 col-md-9 about">
+                                    <p><b>Full Name :</b><span>@Model.Name @Model.Surname</span> </p>
+                                    <p><b>Parent Name :</b><span>@Model.FathersName @Model.Surname</span> </p>
+                                    <p><b>Mobile :</b><span>@Model.MobilNumber</span> </p>
+                                    <p><b>Email :</b><span>@Model.CustomUser.Email</span> </p>
+                                    <p><b>Gender :</b><span>@Model.Gender.Name</span> </p>
+                                    <p><b>Date of Birth :</b><span>@Model.DateOfBirth.ToString("dd MMMM yyyy")</span> </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <address>
+                                        <p><b>Present Address</b></p>
+                                        <p>@Model.PresentAddress</p>
+                                        <p><b>Permanent Address</b></p>
+                                        <p>@Model.PermanentAddress</p>
+                                    </address>
+
+                                    <div class="about">
+                                        <p><b>Class :</b><span>@Model.Class.Name</span> </p>
+                                        <p><b>Joining Date :</b><span>@Model.JoiningDate.ToString("dd MMMM yyyy")</span> </p>
+                                        <p><b>Department :</b><span>@Model.Section.Department.Name</span> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

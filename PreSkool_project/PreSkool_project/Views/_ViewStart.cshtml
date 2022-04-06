@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+
+  
+@*@{
+    if (User.Identity.IsAuthenticated && User.IsInRole("Administrator")) {
+        Layout = "_Layout.cshtml";
+    } 
+    else if (User.Identity.IsAuthenticated && User.IsInRole("Student")){
+        Layout = "_LayoutStudent.cshtml";
+    }
+    else
+    {
+        Layout = "_LayoutTeacher.cshtml";
+    }
+}*@

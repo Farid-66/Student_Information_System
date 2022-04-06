@@ -1,0 +1,170 @@
+﻿@model IEnumerable<PreSkool_project.Models.Class>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Classes</h2>
+                        <p class="d-none d-sm-block"><a asp-controller="admin" asp-action="Index">Dashboard</a> / Classes</p>
+                    </div>
+                    <div class="page_title_btns">
+                        <a asp-controller="Classes" asp-action="DownloadToExcel" class="download_btn"><i class="fas fa-download"></i> Download</a>
+                        <a asp-controller="Classes" asp-action="Create" class="add_btn"><i class="fas fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <div id="table">
+                            <div class="row">
+                                <div class="col-12">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <table class="table" id="ClassTable">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Class Name</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{int i=0;}
+                                            @foreach (var item in Model)
+                                        {
+                                            i++;
+                                            <tr>
+                                                <th scope="row">@i</th>
+                                                <td>@item.Name</td>
+                                                <td>
+                                                    <div>
+                                                        <a asp-controller="Classes" asp-action="Edit" asp-route-id="@item.Id" class="edit_btn"><i class="fas fa-pen"></i></a>
+                                                        <a asp-controller="Classes" asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure?')" class="delete_btn"><i class="fas fa-trash"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                           }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    @*#=================== # Pagination # ========================#*@
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#ClassTable').DataTable({
+                "pagingType": "full_numbers"
+            });
+        });
+    </script>
+    
+    <style>
+
+        .dataTables_length {
+            display: inline-block;
+            margin-bottom: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .dataTables_filter {
+            float: right;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .dataTables_filter label input {
+            margin-left: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50px;
+            padding: 5px 10px;
+            outline-offset: unset;
+        }
+
+        .dataTables_filter label input:focus-visible {
+            outline: none;
+        }
+
+        .dataTables_paginate {
+            float: right;
+        }
+
+        .dataTables_paginate a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            color: #ffbc53;
+            margin: 3px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all .4s ease-in-out;
+        }
+
+        .dataTables_paginate a:hover {
+            background-color: #ffbc53;
+            color: white;
+            border-color: #ffbc53;
+        }
+
+        .dataTables_info {
+            display: inline-block;
+            margin: 15px 0px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .sorting{
+            position: relative;
+        }
+
+        .sorting::before {
+            right: 1em;
+            content: "\2191";
+            position: absolute;
+            left: -7px;
+            opacity: 0.4;
+        }
+        .sorting::after{
+            right: 0.5em;
+            content: "\2193";
+            position: absolute;
+            left: 0px;
+            opacity: 0.4;
+        }
+
+        .sorting_desc::after {
+            opacity: 1;
+         }
+
+         .sorting_desc::before {
+            opacity: 1;
+         }
+
+    </style>
+
+     @*#=================== # --- # ========================#*@

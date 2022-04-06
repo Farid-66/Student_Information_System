@@ -1,0 +1,55 @@
+﻿@model VmStudentDashboard
+@{
+    ViewData["Title"] = "Events";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+<main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Events</h2>
+                        <p class="d-none d-sm-block"><a asp-controller="studentdashboard" asp-action="index" >Dashboard</a> / Events</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <div class="status">
+                            
+                            <div class="holiday">
+                                <p>Holiday </p>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="row">
+
+                            @{
+                                int i = 0;
+                            }
+                            @foreach (var item in Model.Holidays)
+                               {
+                                i++;
+                                <div class="col-12 col-lg-3 col-md-6 col-sm-12">
+                                    <a href="#">@i</a>
+                                    <div class="event-item">
+                                        <div class="d-flex justify-content-between">
+                                            <p><b>@item.Name</b></p>
+                                            <span style=" background-color: green;"></span>
+                                        </div>
+                                        <small>@item.HolidayType.Name</small>
+                                        <p>@item.StartDate.ToString("dd/MM/yyyy")-@item.EndDate.ToString("dd/MM/yyyy")</p>
+                                    </div>
+                                </div>
+                               }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+

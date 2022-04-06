@@ -1,0 +1,61 @@
+﻿@model PreSkool_project.Models.Exam
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Edit Exam</h2>
+                    <p class="d-none d-sm-block"><a asp-controller="exam" asp-action="index">Exam</a> / Edit Exam</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <form asp-controller="exam" asp-action="Edit" method="post">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2><span>Exam Information</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Exam Name</label>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Class Subject</label>
+                                    <select asp-for="ClassToSubjectId" class ="form-control" asp-items="ViewBag.ClassToSubjectId">
+                                        <option selected disabled>Select Class To Subject</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Start Time</label>
+                                     <input asp-for="StartTime" type="time" class="form-control" />
+                                    <span asp-validation-for="StartTime" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">End Time</label>
+                                     <input asp-for="EndTime" type="time" class="form-control" />
+                                     <span asp-validation-for="EndTime" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Event Date</label>
+                                    <input asp-for="EventDate" type="date"  class="form-control" />
+                                     <span asp-validation-for="EventDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <input type="hidden" asp-for="Id" />
+                            <input type="hidden" asp-for="CreatedDate" />
+                            <button type="submit" class="btn btn_submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

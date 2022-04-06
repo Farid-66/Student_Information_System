@@ -1,0 +1,160 @@
+﻿@model VmStudent
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Add Students</h2>
+                    <p class="d-none d-sm-block"><a asp-controller="student" asp-action="index">Students</a> / Add Students</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <form asp-controller="student" asp-action="create" method="post" enctype="multipart/form-data"> 
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2><span>Student Information</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">First Name</label>
+                                    <input asp-for="@Model.Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Last Name</label>
+                                    <input asp-for="@Model.Surname" class="form-control" />
+                                    <span asp-validation-for="Surname" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Gender</label>
+                                    <select asp-for="@Model.GenderId" class ="form-control" asp-items="ViewBag.GenderId">
+                                        <option selected disabled>Select Gender</option>
+                                    </select>
+                                    <span asp-validation-for="GenderId" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Section</label>
+                                    <select asp-for="@Model.SectionId" class ="form-control" asp-items="ViewBag.SectionId">
+                                        <option selected disabled>Select Section</option>
+                                    </select>
+                                    <span asp-validation-for="SectionId" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Mobile Number</label>
+                                    <input asp-for="@Model.MobilNumber" type="tel" class="form-control" />
+                                    <span asp-validation-for="MobilNumber" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Class</label>
+                                    <select asp-for="@Model.ClassId" class ="form-control" asp-items="ViewBag.ClassId">
+                                        <option selected disabled>Select Class</option>
+                                    </select>
+                                    <span asp-validation-for="ClassId" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Date of Birth</label>
+                                    <input asp-for="@Model.DateOfBirth" type="date" class="form-control" />
+                                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Joining Date</label>
+                                    <input asp-for="@Model.JoiningDate" type="date" class="form-control" />
+                                    <span asp-validation-for="JoiningDate" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="ImageFile" class="form-label">Student Image</label>
+                                    <input asp-for="@Model.ImageFile" style="height: auto;" type="file" class="form-control" />
+                                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-12">
+                                    <h2><span>Login Details</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Email</label>
+                                    <input asp-for="@Model.Email" class="form-control" />
+                                    <span asp-validation-for="@Model.Email" type="email" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Password</label>
+                                    <input asp-for="@Model.Password" class="form-control" />
+                                    <span asp-validation-for="@Model.Password" type="password" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Role</label>
+                                    <select asp-for="@Model.RoleId" class ="form-control" asp-items="ViewBag.RoleId">
+                                        <option selected disabled>Select Role ID</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <h2><span>Parent Information</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Father's Name</label>
+                                    <input asp-for="@Model.FathersName" class="form-control" />
+                                    <span asp-validation-for="FathersName" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Father's Occupation</label>
+                                    <input asp-for="@Model.FathersOccupation" class="form-control" />
+                                    <span asp-validation-for="FathersOccupation" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Father's Mobile</label>
+                                    <input asp-for="@Model.FathersMobil" class="form-control" />
+                                    <span asp-validation-for="FathersMobil" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Father's Email</label>
+                                    <input asp-for="@Model.FathersEmail" class="form-control" />
+                                    <span asp-validation-for="FathersEmail" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Mother's Name</label>
+                                    <input asp-for="@Model.MothersName" class="form-control" />
+                                    <span asp-validation-for="MothersName" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Mother's Occupation</label>
+                                    <input asp-for="@Model.MothersOccupation" class="form-control" />
+                                    <span asp-validation-for="MothersOccupation" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Mother's Mobile</label>
+                                    <input asp-for="@Model.MothersMobil" class="form-control" />
+                                    <span asp-validation-for="MothersMobil" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Mother's Email</label>
+                                    <input asp-for="@Model.MothersEmail" class="form-control" />
+                                    <span asp-validation-for="MothersEmail" class="text-danger"></span>
+                                </div>
+    
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Present Address</label>
+                                    <textarea asp-for="@Model.PresentAddress" class="form-control"></textarea>
+                                    <span asp-validation-for="PresentAddress" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Permanent Address</label>
+                                    <textarea asp-for="@Model.PermanentAddress" class="form-control" ></textarea>
+                                    <span asp-validation-for="PermanentAddress" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn_submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

@@ -1,0 +1,157 @@
+﻿@model PreSkool_project.Models.Student
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Edit Students</h2>
+                    <p class="d-none d-sm-block"><a asp-controller="student" asp-action="index">Students</a> / Edit Students</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <form asp-controller="student" asp-action="edit" method="post" enctype="multipart/form-data"> 
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2><span>Student Information</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">First Name</label>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Last Name</label>
+                                    <input asp-for="Surname" class="form-control" />
+                                    <span asp-validation-for="Surname" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Gender</label>
+                                    <select asp-for="GenderId" class ="form-control" asp-items="ViewBag.GenderId">
+                                        <option selected disabled>Select Gender</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Section</label>
+                                    <select asp-for="SectionId" class ="form-control" asp-items="ViewBag.SectionId">
+                                        <option selected disabled>Select Section</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Mobile Number</label>
+                                    <input asp-for="MobilNumber" type="tel" class="form-control" />
+                                    <span asp-validation-for="MobilNumber" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Class</label>
+                                    <select asp-for="ClassId" class ="form-control" asp-items="ViewBag.ClassId">
+                                        <option selected disabled>Select Class</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Date of Birth</label>
+                                    <input asp-for="DateOfBirth" type="date" class="form-control" />
+                                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Joining Date</label>
+                                    <input asp-for="JoiningDate" type="date" class="form-control" />
+                                    <span asp-validation-for="JoiningDate" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="ImageFile" class="form-label">Student Image</label>
+                                    <input asp-for="ImageFile" style="height: auto;" type="file" class="form-control" />
+                                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                </div>
+
+                                @*<div class="col-12">
+                                    <h2><span>Login Details</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Username</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Email ID</label>
+                                    <input type="email" class="form-control">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Password</label>
+                                    <input type="password" class="form-control">
+                                </div>*@
+
+                                <div class="col-12">
+                                    <h2><span>Parent Information</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Father's Name</label>
+                                    <input asp-for="FathersName" class="form-control" />
+                                    <span asp-validation-for="FathersName" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Father's Occupation</label>
+                                    <input asp-for="FathersOccupation" class="form-control" />
+                                    <span asp-validation-for="FathersOccupation" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Father's Mobile</label>
+                                    <input asp-for="FathersMobil" class="form-control" />
+                                    <span asp-validation-for="FathersMobil" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Father's Email</label>
+                                    <input asp-for="FathersEmail" class="form-control" />
+                                    <span asp-validation-for="FathersEmail" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Mother's Name</label>
+                                    <input asp-for="MothersName" class="form-control" />
+                                    <span asp-validation-for="MothersName" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Mother's Occupation</label>
+                                    <input asp-for="MothersOccupation" class="form-control" />
+                                    <span asp-validation-for="MothersOccupation" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Mother's Mobile</label>
+                                    <input asp-for="MothersMobil" class="form-control" />
+                                    <span asp-validation-for="MothersMobil" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Mother's Email</label>
+                                    <input asp-for="MothersEmail" class="form-control" />
+                                    <span asp-validation-for="MothersEmail" class="text-danger"></span>
+                                </div>
+    
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Present Address</label>
+                                    <textarea asp-for="PresentAddress" class="form-control"></textarea>
+                                    <span asp-validation-for="PresentAddress" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Permanent Address</label>
+                                    <textarea asp-for="PermanentAddress" class="form-control" ></textarea>
+                                    <span asp-validation-for="PermanentAddress" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <input type="hidden" asp-for="Id" />
+                            <input asp-for="StudentImage" hidden />
+                            <input asp-for="CustomUserId" hidden />
+                            <input asp-for="CreatedDate" hidden />
+                            <button type="submit" class="btn btn_submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

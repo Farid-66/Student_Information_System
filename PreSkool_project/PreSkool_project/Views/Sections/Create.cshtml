@@ -1,0 +1,45 @@
+﻿@model PreSkool_project.Models.Section
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Add Section</h2>
+                    <p class="d-none d-sm-block"><a asp-controller="Sections" asp-action="index">Sections</a> / Add Section</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <form asp-controller="Sections" asp-action="Create" method="post">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2><span>Section Information</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="Name" class="form-label">Section Name</label>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="DepartmentId" class="form-label">Department Name</label>
+                                    <select asp-for="DepartmentId" class ="form-control" asp-items="ViewBag.DepartmentId">
+                                        <option selected disabled>Select Department</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn_submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

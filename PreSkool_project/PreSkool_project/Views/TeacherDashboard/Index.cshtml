@@ -1,0 +1,123 @@
+﻿@model VmTeacherDashboard
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutTeacher.cshtml";
+}
+
+ <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Welcome @Model.Teachers.Name</h2>
+                        <p>Dashboard</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="breadcrumb bg_three">
+                        <div class="bd-icon">
+                            <i class="fas fa-chalkboard"></i>
+                        </div>
+                        <div class="bd-body">
+
+                        @{
+                            int i = 0;
+                        }
+
+                        @foreach (var item in Model.ClassToSubjects)
+                        {
+                            if (Model.Teachers.Subject.Id == item.SubjectId)
+                            {
+                                i++;
+                            }
+                        }
+
+                            <h3>@i</h3>
+                            <h6>Total Classes</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="breadcrumb bg_one ">
+                       <div class="bd-icon">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <div class="bd-body">
+                            <h3>@Model.Teachers.JoiningDate.ToString("dd MMM")</h3>
+                            <h6>Joining Date</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="breadcrumb bg_four">
+                        <div class="bd-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        @{decimal h=i*((decimal)1.5);}
+                        <div class="bd-body">
+                            <h3>@h</h3>
+                            <h6>Total Hours</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="breadcrumb bg_tow">
+                        <div class="bd-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="bd-body">
+                            <h3>@Model.Salaries.Amount $</h3>
+                            <h6>Salary</h6>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="col-12 my-5 subjects">
+                    
+                @foreach (var item in Model.ClassToSubjects)
+                {
+                    if (Model.Teachers.Subject.Id == item.SubjectId)
+                    {
+                        <span>@item.Class.Name</span>
+                    }
+                }
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-12 mt-5 ">
+                    <table class="table">
+                        <tbody>
+                          <tr>
+                            <th class="p-3" scope="row">Name</th>
+                            <td class="p-3">@Model.Teachers.Name</td>
+                          </tr>
+                          <tr>
+                            <th class="p-3" scope="row">Surname</th>
+                            <td class="p-3">@Model.Teachers.Surname</td>
+                          </tr>
+                          <tr>
+                            <th class="p-3" scope="row">Email</th>
+                            <td class="p-3">@Model.Teachers.CustomUser.Email</td>
+                          </tr>
+                          <tr>
+                            <th class="p-3" scope="row">Subject</th>
+                            <td class="p-3">@Model.Teachers.Subject.Name</td>
+                          </tr>
+                          <tr>
+                            <th class="p-3" scope="row">Joining Date</th>
+                            <td class="p-3">@Model.Teachers.JoiningDate.ToString("dd MMMM yyyy")</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </main>

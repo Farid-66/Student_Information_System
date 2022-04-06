@@ -1,0 +1,67 @@
+﻿@model PreSkool_project.Models.Expenses
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Edit Expenses</h2>
+                    <p class="d-none d-sm-block"><a asp-controller="Expenses" asp-action="index">Expenses</a> / Edit Expenses</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <form asp-controller="Expenses" asp-action="Edit" method="post">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2><span>Expenses Information</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="Name" class="form-label">Expenses Name</label>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="ExpensesTypeId" class="form-label">Type of Expenses</label>
+                                    <select asp-for="ExpensesTypeId" class ="form-control" asp-items="ViewBag.ExpensesTypeId">
+                                        <option selected disabled>Select Expenses Type</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="Quality" class="form-label">Quality</label>
+                                    <input asp-for="Quality" class="form-control" />
+                                    <span asp-validation-for="Quality" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="Amount" class="form-label">Amount</label>
+                                    <input asp-for="Amount" type="number" class="form-control" />
+                                    <span asp-validation-for="Amount" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="SourceOfPurchase" class="form-label">Source Of Purchase</label>
+                                    <input asp-for="SourceOfPurchase" class="form-control" />
+                                    <span asp-validation-for="SourceOfPurchase" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="ExpensesDate" class="form-label">Expenses Date</label>
+                                     <input asp-for="ExpensesDate" type="date" class="form-control" />
+                                    <span asp-validation-for="ExpensesDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <input type="hidden" asp-for="Id" />
+                            <input type="hidden" asp-for="CreatedDate" />
+                            <button type="submit" class="btn btn_submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

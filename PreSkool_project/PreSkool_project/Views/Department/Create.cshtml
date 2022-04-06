@@ -1,0 +1,49 @@
+﻿@model PreSkool_project.Models.Department
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Add Department</h2>
+                    <p class="d-none d-sm-block"><a asp-controller="department" asp-action="index">Departments</a> / Add Department</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <form asp-controller="department" asp-action="create" method="post">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2><span>Department Information</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Department Name</label>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Head of Department</label>
+                                    <input asp-for="HOD" class="form-control" />
+                                    <span asp-validation-for="HOD" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="" class="form-label">Department Start Date</label>
+                                    <input asp-for="DepartmentStartDate" type="month" class="form-control" />
+                                    <span asp-validation-for="DepartmentStartDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn_submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

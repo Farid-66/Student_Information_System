@@ -1,0 +1,41 @@
+﻿@model PreSkool_project.Models.HolidayType
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Edit Holiday Type</h2>
+                    <p class="d-none d-sm-block"><a asp-controller="holidaytypes" asp-action="index">Holiday Types</a> / Edit Holiday Type</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12">
+                    <div class="card_body">
+                        <form  asp-controller="holidaytypes" asp-action="edit" method="post">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2><span>Holiday Type Information</span></h2>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label asp-for="@Model.Name" class="form-label">Holiday Type</label>
+                                    <input type="text" class="form-control" asp-for="@Model.Name">
+                                    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <input type="hidden" asp-for="Id" />
+                            <button type="submit" class="btn btn_submit" onclick="return Swal.fire('Good job!','You clicked the button!','success')">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+

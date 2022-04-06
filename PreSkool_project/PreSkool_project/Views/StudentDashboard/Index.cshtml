@@ -1,0 +1,125 @@
+﻿@model VmStudentDashboard
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+
+ <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 page_title">
+                    <div>
+                        <h2>Welcome @Model.Student.Name!</h2>
+                        <p>Dashboard</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="breadcrumb bg_tow">
+                        <div class="bd-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="bd-body">
+
+                        @{
+                            int cours = 0;
+                        }
+
+                        @foreach (var item in Model.ClassToSubjects)
+                        {
+                            if (Model.Student.Class.Id == item.ClassId)
+                            {
+                                cours++;
+                            }
+                        }
+
+                            <h3>@cours</h3>
+                            <h6>All Courses</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="breadcrumb bg_one">
+                        <div class="bd-icon">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <div class="bd-body">
+                            <h3>@Model.Student.JoiningDate.ToString("dd MMM")</h3>
+                            <h6>Joining Date</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="breadcrumb bg_four">
+                        <div class="bd-icon">
+                            <i class="fas fa-chalkboard"></i>
+                        </div>
+                        <div class="bd-body">
+                            <h3>@Model.Student.Class.Name</h3>
+                            <h6>Class</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="breadcrumb bg_three">
+                        <div class="bd-icon">
+                            <i class="fa-solid fa-comment-dollar"></i>
+                        </div>
+                        <div class="bd-body">
+                            <h3>@Model.Annual.Fees $</h3>
+                            <h6>Annual</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-12 my-5 subjects">
+                    
+                @foreach (var item in Model.ClassToSubjects)
+                {
+                    if (Model.Student.Class.Id == item.ClassId)
+                    {
+                        <span>@item.Subject.Name</span>
+                    }
+                }
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <table class="table">
+                        <tbody>
+                          <tr>
+                            <th class="p-3" scope="row">Name</th>
+                            <td class="p-3">@Model.Student.Name</td>
+                          </tr>
+                          <tr>
+                            <th class="p-3" scope="row">Surname</th>
+                            <td class="p-3">@Model.Student.Surname</td>
+                          </tr>
+                          <tr>
+                            <th class="p-3" scope="row">Email</th>
+                            <td class="p-3">@Model.Student.CustomUser.Email</td>
+                          </tr>
+                          <tr>
+                            <th class="p-3" scope="row">Section</th>
+                            <td class="p-3">@Model.Student.Section.Name</td>
+                          </tr>
+                          <tr>
+                            <th class="p-3" scope="row">Department</th>
+                            <td class="p-3">@Model.Student.Section.Department.Name</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
